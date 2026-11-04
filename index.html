@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090d18">
+  <meta name="description" content="ArcadeWorld — 20 free browser games. Play instantly on desktop or mobile.">
+  <title>ArcadeWorld — Free Online Games</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="ArcadeWorld home"><span class="brand-mark">A</span><span>ARCADE<span class="brand-accent">WORLD</span></span></a>
+    <nav><a href="#games">Games</a><a href="#leaderboard">Leaderboard</a><a href="#about">About</a></nav>
+    <div class="top-actions"><span class="online-dot"></span><span class="online-label">20 GAMES ONLINE</span><button class="icon-btn" id="soundToggle" aria-label="Toggle sound">♫</button></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span></span> THE FREE PLAYGROUND</div>
+        <h1>PRESS PLAY.<br><span>ESCAPE REALITY.</span></h1>
+        <p>Twenty quick games. Zero downloads. No paywalls. Just open a game and play.</p>
+        <a class="primary-btn" href="#games">EXPLORE GAMES <span>↗</span></a>
+        <div class="hero-stats"><div><strong>20</strong><small>FREE GAMES</small></div><div><strong>0</strong><small>DOWNLOADS</small></div><div><strong>∞</strong><small>REPLAYS</small></div></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="hero-cube">✦</div><div class="float-chip chip-one">★  ARCADE</div><div class="float-chip chip-two">LEVEL UP</div><div class="float-chip chip-three">▶ PLAY</div>
+      </div>
+    </section>
+
+    <section class="toolbar" id="games">
+      <div><div class="section-kicker">THE COLLECTION</div><h2>Pick your <span>game.</span></h2></div>
+      <div class="filters">
+        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search games..." autocomplete="off"></label>
+        <select id="categoryFilter" aria-label="Filter by category"><option value="All">All categories</option><option>Arcade</option><option>Puzzle</option><option>Action</option><option>Casual</option><option>Brain</option><option>Sports</option></select>
+      </div>
+    </section>
+
+    <section class="game-grid" id="gameGrid" aria-live="polite"></section>
+
+    <section class="lower-panels" id="leaderboard">
+      <div class="panel">
+        <div class="section-kicker">YOUR ACTIVITY</div><h3>Player stats</h3>
+        <div class="stat-row"><span>Games played</span><strong id="playedCount">0</strong></div>
+        <div class="stat-row"><span>Best score</span><strong id="bestScore">0</strong></div>
+        <div class="stat-row"><span>Favourite game</span><strong id="favoriteGame">—</strong></div>
+        <button class="text-btn" id="resetStats">Reset local stats ↗</button>
+      </div>
+      <div class="panel leaderboard-panel">
+        <div class="section-kicker">LOCAL LEADERBOARD</div><h3>Top scores</h3>
+        <div id="leaderboardList" class="leader-list"><p class="muted">Play a game to add your first score.</p></div>
+        <p class="tiny-note">Scores are saved only in this browser on this device.</p>
+      </div>
+    </section>
+
+    <section class="about" id="about"><div><div class="section-kicker">MADE FOR EVERYONE</div><h2>Small breaks.<br><span>Big fun.</span></h2></div><p>ArcadeWorld is a free collection of lightweight browser games. No account, installation, or payment is required. Your game progress is stored locally in your browser.</p></section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">A</span><span>ARCADE<span class="brand-accent">WORLD</span></span></a><span>© <span id="year"></span> ArcadeWorld. Play fair. Have fun.</span><span>FREE TO PLAY · BUILT FOR THE WEB</span></footer>
+
+  <div class="modal" id="gameModal" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <section class="game-window" role="dialog" aria-modal="true" aria-labelledby="gameTitle">
+      <div class="game-window-head"><div><div class="section-kicker" id="gameCategory">ARCADE GAME</div><h2 id="gameTitle">Game</h2></div><button class="close-btn" id="closeGame" aria-label="Close game">×</button></div>
+      <div class="game-meta"><span id="gameDescription"></span><span class="score-pill">SCORE <b id="liveScore">0</b></span></div>
+      <div id="gameArea" class="game-area"></div>
+      <div class="game-window-foot"><span id="gameHint">Have fun!</span><button class="secondary-btn" id="restartGame">↻ Restart</button></div>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
